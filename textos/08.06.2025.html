@@ -35,7 +35,6 @@
             box-sizing: border-box;
         }
 
-        /* Remove outline de foco */
         button:focus,
         a:focus,
         input:focus {
@@ -102,7 +101,7 @@
             width: 200px;
         }
 
-                .search-box:hover {
+        .search-box:hover {
             border: 1px solid var(--code-bg);
             border-radius: 4px;
             transition: 0.3 ease;
@@ -263,35 +262,6 @@
         .social-btn.linkedin { background-color: #0077b5; }
         .social-btn.whatsapp { background-color: #25d366; }
 
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: var(--link-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--link-hover);
-            transform: translateY(-2px);
-        }
-
         /* Mobile Navigation */
         .mobile-nav {
             display: none;
@@ -358,11 +328,11 @@
                 display: block;
             }
 
-                    .main-container {
-                max-width: 100%; /* Garante que o container ocupe toda a largura disponível */
-                margin: 1.5rem auto; /* Centraliza e adiciona margem superior/inferior */
-                padding: 0 1.5rem; /* Adiciona padding nas laterais */
-                display: block; /* Remove grid para mobile */
+            .main-container {
+                max-width: 100%;
+                margin: 1.5rem auto;
+                padding: 0 1.5rem;
+                display: block;
             }
 
             .sidebar {
@@ -374,37 +344,15 @@
             }
 
             .header-container {
-                padding: 0 1.5rem; /* Ajustado padding do header para mobile */
+                padding: 0 1.5rem;
             }
 
             .post-content {
-                padding: 0; /* Remove padding extra, já que o main-container tem */
+                padding: 0;
             }
 
             .social-share {
-                padding: 0; /* Remove padding extra, já que o main-container tem */
-            }
-
-            .audio-section {
-                padding: 0; /* Remove padding extra, já que o main-container tem */
-            }
-
-            .audio-player {
-                padding: 1rem; /* Reduz padding para mobile */
-            }
-
-            .audio-controls {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: stretch;
-            }
-
-            .audio-info {
-                text-align: center;
-            }
-
-            .volume-control {
-                justify-content: center;
+                padding: 0;
             }
         }
 
@@ -414,19 +362,18 @@
             }
 
             .main-container {
-                padding: 1rem; /* Aumentado padding para telas menores */
+                padding: 1rem;
             }
 
             .header-container {
-                padding: 0 1rem; /* Ajustado padding do header para telas menores */
+                padding: 0 1rem;
             }
 
             .search-box, .mobile-search {
-                width: calc(100% - 2rem); /* Ajusta largura para telas menores */
-                margin: 0 1rem; /* Centraliza e adiciona margem */
-            }ding: 0.5rem;
+                width: calc(100% - 2rem);
+                margin: 0 1rem;
             }
-
+        }
 
         /* Smooth scrolling */
         html {
@@ -482,7 +429,7 @@
                     
                     <p>E assim, diante da complexidade, da ironia e da indiferença do mundo – com todas aquelas pessoas que vi na rua, cada uma mergulhada em suas próprias vidas, algumas felizes, outras drogadas (cheguei a ver um homem completamente alterado, falando sozinho) –, não me restou outra reação senão rir.</p>
                 </div>
-                                <div class="social-share">
+                <div class="social-share">
                     <h4>Compartilhar este post:</h4>
                     <div class="social-buttons">
                         <a href="#" class="social-btn twitter" onclick="shareOnTwitter()" aria-label="Compartilhar no X">
@@ -499,20 +446,8 @@
                         </a>
                     </div>
                 </div>
-
             </article>
         </div>
-
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div style="margin-top: 1rem;">
-                <h3>Posts Relacionados</h3>
-                <ul>
-                    <li><a href="implementando-modo-escuro.html">#</a></li>
-                    <li><a href="github-pages.html">#</a></li>
-                </ul>
-            </div>
-        </aside>
     </main>
 
     <script>
@@ -608,76 +543,6 @@
                 }
             }
         });
-
-        // Audio Player Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const audio = document.getElementById('audioElement');
-            const playPauseBtn = document.getElementById('playPauseBtn');
-            const progressBar = document.getElementById('progressBar');
-            const progressFill = document.getElementById('progressFill');
-            const currentTimeSpan = document.getElementById('currentTime');
-            const durationSpan = document.getElementById('duration');
-            const volumeSlider = document.getElementById('volumeSlider');
-
-            // Format time helper function
-            function formatTime(seconds) {
-                const minutes = Math.floor(seconds / 60);
-                const remainingSeconds = Math.floor(seconds % 60);
-                return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-            }
-
-            // Load metadata and set duration
-            audio.addEventListener('loadedmetadata', function() {
-                durationSpan.textContent = formatTime(audio.duration);
-            });
-
-            // Play/Pause functionality
-            playPauseBtn.addEventListener('click', function() {
-                if (audio.paused) {
-                    audio.play();
-                    playPauseBtn.textContent = '⏸';
-                } else {
-                    audio.pause();
-                    playPauseBtn.textContent = '▶';
-                }
-            });
-
-            // Update progress bar and time
-            audio.addEventListener('timeupdate', function() {
-                const progress = (audio.currentTime / audio.duration) * 100;
-                progressFill.style.width = progress + '%';
-                currentTimeSpan.textContent = formatTime(audio.currentTime);
-            });
-
-            // Click on progress bar to seek
-            progressBar.addEventListener('click', function(e) {
-                const rect = progressBar.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                const width = rect.width;
-                const clickRatio = clickX / width;
-                audio.currentTime = clickRatio * audio.duration;
-            });
-
-            // Volume control
-            volumeSlider.addEventListener('input', function() {
-                audio.volume = volumeSlider.value / 100;
-            });
-
-            // Reset play button when audio ends
-            audio.addEventListener('ended', function() {
-                playPauseBtn.textContent = '▶';
-                progressFill.style.width = '0%';
-                currentTimeSpan.textContent = '0:00';
-            });
-
-            // Handle audio loading errors
-            audio.addEventListener('error', function() {
-                console.error('Erro ao carregar o áudio');
-                playPauseBtn.textContent = '❌';
-                playPauseBtn.disabled = true;
-            });
-        });
     </script>
 </body>
 </html>
-
