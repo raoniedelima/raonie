@@ -9,10 +9,10 @@
             --bg-color: #ffffff;
             --text-color: #333333;
             --header-bg: #ffffff;
-            --border-color: #e1e5e9;
+            --border-color: #ffffff;
             --link-color: #0066cc;
             --link-hover: #004499;
-            --sidebar-bg: #f8f9fa;
+            --sidebar-bg: #ffffff;
             --code-bg: #f6f8fa;
             --shadow: rgba(0, 0, 0, 0.1);
         }
@@ -21,10 +21,10 @@
             --bg-color: #111111;
             --text-color: #e1e5e9;
             --header-bg: #111111;
-            --border-color: #404040;
+            --border-color: #111111;
             --link-color: #b8b8b8;
             --link-hover: #576583;
-            --sidebar-bg: #1b1b1b;
+            --sidebar-bg: #111111;
             --code-bg: #2d2d2d;
             --shadow: rgba(0, 0, 0, 0.3);
         }
@@ -84,7 +84,7 @@
         }
 
         .nav-desktop a {
-            color: var(--text-color);
+            color: #6c6d6e;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -102,10 +102,15 @@
             width: 200px;
         }
 
+        .search-box:hover {
+            border: 1px solid var(--code-bg);
+            border-radius: 4px;
+        }
+
         .theme-toggle {
             background: none;
             border: none;
-            color: var(--text-color);
+            color: #6c6d6e;
             cursor: pointer;
             font-size: 1rem;
             padding: 0.5rem;
@@ -114,7 +119,7 @@
         }
 
         .theme-toggle:hover {
-            background-color: var(--sidebar-bg);
+            color: var(--link-color);
         }
 
         .mobile-menu-btn {
@@ -341,9 +346,9 @@
             <nav class="nav-desktop">
                 <a href="#home">Página Inicial</a>
                 <a href="sobre.html">Sobre</a>
-                <a href="#contact">Contato</a>
+                <a href="mailto:raoniedelima@gmail.com">Contato</a>
                 <input type="search" class="search-box" placeholder="Search...">
-                <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+                <button class="theme-toggle" aria-label="Toggle dark mode">dark</button>
             </nav>
 
             <button class="mobile-menu-btn" aria-label="Open menu">☰</button>
@@ -360,7 +365,7 @@
             <input type="search" class="mobile-search" placeholder="Search...">
             <a href="index.html">Página Inicial</a>
             <a href="sobre.html">Sobre</a>
-            <a href="#contact">Contato</a>
+            <a href="mailto:raoniedelima@gmail.com">Contato</a>
             <button class="theme-toggle" style="text-align: left; background: none; border: none; color: var(--text-color); font-size: 1.2rem; padding: 1rem 0;">🌙 Dark Mode</button>
         </div>
     </nav>
