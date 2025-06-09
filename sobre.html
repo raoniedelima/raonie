@@ -327,9 +327,11 @@
                 display: block;
             }
 
-            .sidebar {
-                order: -1;
-                position: static;
+            .main-container {
+                max-width: 100%; /* Garante que o container ocupe toda a largura disponível */
+                margin: 1.5rem auto; /* Centraliza e adiciona margem superior/inferior */
+                padding: 0 1.5rem; /* Adiciona padding nas laterais */
+                display: block; /* Remove grid para mobile */
             }
 
             .post-title {
@@ -337,7 +339,16 @@
             }
 
             .header-container {
-                padding: 0 1rem;
+                padding: 0 1.5rem; /* Ajustado padding do header para mobile */
+            }
+
+            .post-content {
+                padding: 0; /* Remove padding extra, já que o main-container tem */
+            }
+
+            .search-box, .mobile-search {
+                width: calc(100% - 3rem); /* Ajusta largura para mobile */
+                margin: 0 1.5rem; /* Centraliza e adiciona margem */
             }
         }
 
@@ -347,9 +358,17 @@
             }
 
             .main-container {
-                padding: 0.5rem;
+                padding: 1rem; /* Aumentado padding para telas menores */
             }
-        }
+
+            .header-container {
+                padding: 0 1rem; /* Ajustado padding do header para telas menores */
+            }
+
+            .search-box, .mobile-search {
+                width: calc(100% - 2rem); /* Ajusta largura para telas menores */
+                margin: 0 1rem; /* Centraliza e adiciona margem */
+            }
 
         /* Smooth scrolling */
         html {

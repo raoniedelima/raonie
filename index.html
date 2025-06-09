@@ -304,7 +304,9 @@
 
             .main-container {
                 grid-template-columns: 1fr;
-                padding: 1rem;
+                padding: 1rem; /* Ajustado para ter padding nas la            .main-container {
+                grid-template-columns: 1fr;
+                padding: 1.5rem; /* Aumentado para ter mais padding nas laterais */
                 margin: 1rem auto;
             }
 
@@ -317,7 +319,22 @@
             }
 
             .header-container {
-                padding: 0 1rem;
+                padding: 0 1.5rem; /* Ajustado padding do header para mobile */
+            }
+
+            .posts-section h2 {
+                text-align: left;
+                padding-left: 1.5rem; /* Aumentado padding para não colar na borda */
+            }
+
+            .post-list {
+                margin-left: 1rem;
+                padding-left: 1.5rem; /* Aumentado padding para não colar na borda */
+            }
+
+            .search-box, .mobile-search {
+                width: calc(100% - 3rem); /* Ajusta largura para mobile */
+                margin: 0 1.5rem; /* Centraliza e adiciona margem */
             }
         }
 
@@ -327,9 +344,25 @@
             }
 
             .main-container {
-                padding: 0.5rem;
+                padding: 1rem; /* Aumentado padding para telas menores */
             }
-        }
+
+            .header-container {
+                padding: 0 1rem; /* Ajustado padding do header para telas menores */
+            }
+
+            .posts-section h2 {
+                padding-left: 1rem; /* Ajustado padding para telas menores */
+            }
+
+            .post-list {
+                padding-left: 1rem; /* Ajustado padding para telas menores */
+            }
+
+            .search-box, .mobile-search {
+                width: calc(100% - 2rem); /* Ajusta largura para telas menores */
+                margin: 0 1rem; /* Centraliza e adiciona margem */
+            }
 
         /* Smooth scrolling */
         html {
