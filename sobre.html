@@ -93,21 +93,6 @@
             color: var(--link-color);
         }
 
-        .search-box {
-            padding: 0.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            width: 200px;
-        }
-
-                .search-box:hover {
-            border: 1px solid var(--code-bg);
-            border-radius: 4px;
-            transition: 0.3 ease;
-        }
-
         .theme-toggle {
             background: none;
             border: none;
@@ -116,11 +101,67 @@
             font-size: 1rem;
             padding: 0.5rem;
             border-radius: 4px;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            position: relative;
         }
 
         .theme-toggle:hover {
             color: var(--link-color);
+            background-color: var(--code-bg);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            transition: all 0.3s ease;
+        }
+
+        /* Sun icon (light mode) */
+        .theme-toggle .sun-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        .theme-toggle .moon-icon {
+            opacity: 0;
+            transform: rotate(180deg) scale(0.5);
+            position: absolute;
+        }
+
+        /* Moon icon (dark mode) */
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            opacity: 0;
+            transform: rotate(180deg) scale(0.5);
+        }
+
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+            position: relative;
+        }
+
+        /* Mobile theme toggle styling */
+        .mobile-nav-content .theme-toggle {
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            padding: 1rem 0;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-nav-content .theme-toggle svg {
+            width: 20px;
+            height: 20px;
         }
 
         .mobile-menu-btn {
@@ -307,16 +348,6 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .mobile-search {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin-bottom: 1rem;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-desktop {
@@ -364,11 +395,6 @@
             .header-container {
                 padding: 0 1rem; /* Ajustado padding do header para telas menores */
             }
-
-            .search-box, .mobile-search {
-                width: calc(100% - 2rem); /* Ajusta largura para telas menores */
-                margin: 0 1rem; /* Centraliza e adiciona margem */
-            }
         }
 
         /* Smooth scrolling */
@@ -387,8 +413,15 @@
                 <a href="index.html">Página Inicial</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="mailto:raoniedelima@gmail.com">Contato</a>
-                <input type="search" class="search-box" placeholder="Search...">
-                <button class="theme-toggle" aria-label="Toggle dark mode">dark</button>
+                <button class="theme-toggle" aria-label="Alternar modo escuro">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
             </nav>
 
             <button class="mobile-menu-btn" aria-label="Open menu">☰</button>
@@ -402,11 +435,18 @@
             <button class="mobile-nav-close" aria-label="Close menu">✕</button>
         </div>
         <div class="mobile-nav-content">
-            <input type="search" class="mobile-search" placeholder="Search...">
             <a href="index.html">Página Inicial</a>
             <a href="sobre.html">Sobre</a>
             <a href="mailto:raoniedelima@gmail.com">Contato</a>
-            <button class="theme-toggle" style="text-align: left; background: none; border: none; color: var(--text-color); font-size: 1.2rem; padding: 1rem 0;">dark</button>
+            <button class="theme-toggle" aria-label="Alternar modo escuro">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
         </div>
     </nav>
 
@@ -441,9 +481,6 @@
         // Apply the saved theme
         if (currentTheme === 'dark') {
             html.setAttribute('data-theme', 'dark');
-            themeToggleButtons.forEach(btn => {
-                btn.textContent = 'light';
-            });
         }
 
         // Theme toggle event listeners
@@ -454,11 +491,6 @@
                 
                 html.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
-                
-                // Update button icons
-                themeToggleButtons.forEach(btn => {
-                    btn.textContent = newTheme === 'dark' ? 'light' : 'dark';
-                });
             });
         });
 
