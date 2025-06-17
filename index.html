@@ -93,20 +93,6 @@
             color: var(--link-color);
         }
 
-        .search-box {
-            padding: 0.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            width: 200px;
-        }
-
-        .search-box:hover {
-            border: 1px solid var(--code-bg);
-            border-radius: 4px;
-        }
-
         .theme-toggle {
             background: none;
             border: none;
@@ -282,16 +268,6 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .mobile-search {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin-bottom: 1rem;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-desktop {
@@ -331,11 +307,6 @@
                 margin-left: 1rem;
                 padding-left: 1.5rem; /* Aumentado padding para não colar na borda */
             }
-
-            .search-box, .mobile-search {
-                width: calc(100% - 3rem); /* Ajusta largura para mobile */
-                margin: 0 1.5rem; /* Centraliza e adiciona margem */
-            }
         }
 
         @media (max-width: 480px) {
@@ -358,11 +329,6 @@
             .post-list {
                 padding-left: 1rem; /* Ajustado padding para telas menores */
             }
-
-            .search-box, .mobile-search {
-                width: calc(100% - 2rem); /* Ajusta largura para telas menores */
-                margin: 0 1rem; /* Centraliza e adiciona margem */
-            }
         }
 
         /* Smooth scrolling */
@@ -381,7 +347,6 @@
                 <a href="index.html">Página Inicial</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="mailto:raoniedelima@gmail.com">Contato</a>
-                <input type="search" class="search-box" placeholder="Search...">
                 <button class="theme-toggle" aria-label="Toggle dark mode">dark</button>
             </nav>
 
@@ -396,7 +361,6 @@
             <button class="mobile-nav-close" aria-label="Close menu">✕</button>
         </div>
         <div class="mobile-nav-content">
-            <input type="search" class="mobile-search" placeholder="Search...">
             <a href="index.html">Página Inicial</a>
             <a href="sobre.html">Sobre</a>
             <a href="mailto:raoniedelima@gmail.com">Contato</a>
@@ -492,27 +456,7 @@
                 document.body.style.overflow = '';
             });
         });
-
-        // Search functionality (basic implementation)
-        const searchBoxes = document.querySelectorAll('input[type="search"]');
-        searchBoxes.forEach(searchBox => {
-            searchBox.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const postItems = document.querySelectorAll('.post-item');
-                
-                // Filter posts
-                postItems.forEach(item => {
-                    const title = item.querySelector('.post-link').textContent.toLowerCase();
-                    
-                    if (title.includes(searchTerm)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = searchTerm ? 'none' : 'block';
-                    }
-                });
-            });
-        });
-
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
