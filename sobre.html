@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre - Raonie</title>
+    <title>Sobre Raonie - Diário de Memórias e Reflexões Pessoais</title>
+    <meta name="description" content="Conheça Raonie, o autor deste diário de memórias e reflexões pessoais. Descubra a inspiração por trás dos textos e a proposta deste espaço online.">
+    <meta property="og:title" content="Sobre Raonie - Diário de Memórias e Reflexões Pessoais">
+    <meta property="og:description" content="Conheça Raonie, o autor deste diário de memórias e reflexões pessoais. Descubra a inspiração por trás dos textos e a proposta deste espaço online.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://raonie.github.io/sobre.html">
+    <meta property="og:image" content="https://raonie.github.io/assets/images/raonie-about-social-share.jpg"> <!-- Adicione uma imagem para compartilhamento social aqui -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sobre Raonie - Diário de Memórias e Reflexões Pessoais">
+    <meta name="twitter:description" content="Conheça Raonie, o autor deste diário de memórias e reflexões pessoais. Descubra a inspiração por trás dos textos e a proposta deste espaço online.">
+    <meta name="twitter:image" content="https://raonie.github.io/assets/images/raonie-about-social-share.jpg"> <!-- Adicione a mesma imagem para Twitter Cards aqui -->
     <link rel="stylesheet" href="style_melhorado.css">
 </head>
 <body>
@@ -74,16 +84,16 @@
                 <div class="social-share">
                     <h4>Compartilhar esta página</h4>
                     <div class="social-buttons">
-                        <a href="https://twitter.com/intent/tweet?url=https://raonie.com/sobre&text=Sobre%20-%20Raonie" class="social-btn twitter" target="_blank" rel="noopener">
+                        <a href="https://twitter.com/intent/tweet?url=https://raonie.github.io/sobre&text=Sobre%20Raonie%20-%20Diário%20de%20Memórias%20e%20Reflexões%20Pessoais" class="social-btn twitter" target="_blank" rel="noopener">
                              Twitter
                         </a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://raonie.com/sobre" class="social-btn facebook" target="_blank" rel="noopener">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://raonie.github.io/sobre" class="social-btn facebook" target="_blank" rel="noopener">
                              Facebook
                         </a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://raonie.com/sobre" class="social-btn linkedin" target="_blank" rel="noopener">
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://raonie.github.io/sobre" class="social-btn linkedin" target="_blank" rel="noopener">
                              LinkedIn
                         </a>
-                        <a href="https://wa.me/?text=Confira%20esta%20página:%20https://raonie.com/sobre" class="social-btn whatsapp" target="_blank" rel="noopener">
+                        <a href="https://wa.me/?text=Confira%20esta%20página:%20https://raonie.github.io/sobre" class="social-btn whatsapp" target="_blank" rel="noopener">
                              WhatsApp
                         </a>
                     </div>
@@ -97,88 +107,88 @@
 
     <script>
         // Theme Toggle Functionality com melhorias
-        const themeToggleButtons = document.querySelectorAll('.theme-toggle');
+        const themeToggleButtons = document.querySelectorAll(".theme-toggle");
         const html = document.documentElement;
         const body = document.body;
 
         // Check for saved theme preference or default to 'light'
-        const currentTheme = localStorage.getItem('theme') || 
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const currentTheme = localStorage.getItem("theme") || 
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
         // Apply the saved theme
-        if (currentTheme === 'dark') {
-            html.setAttribute('data-theme', 'dark');
+        if (currentTheme === "dark") {
+            html.setAttribute("data-theme", "dark");
         }
 
         // Theme toggle event listeners com animação suave
         themeToggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                body.classList.add('theme-transitioning');
+            button.addEventListener("click", () => {
+                body.classList.add("theme-transitioning");
                 
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                const currentTheme = html.getAttribute("data-theme");
+                const newTheme = currentTheme === "dark" ? "light" : "dark";
                 
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                html.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
                 
                 // Remove a classe de transição após a animação
                 setTimeout(() => {
-                    body.classList.remove('theme-transitioning');
+                    body.classList.remove("theme-transitioning");
                 }, 400);
             });
         });
 
         // Mobile Menu Functionality
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavClose = document.querySelector('.mobile-nav-close');
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const mobileNav = document.getElementById("mobileNav");
+        const mobileNavClose = document.querySelector(".mobile-nav-close");
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        mobileMenuBtn.addEventListener("click", () => {
+            mobileNav.classList.add("active");
+            document.body.style.overflow = "hidden";
         });
 
-        mobileNavClose.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
+        mobileNavClose.addEventListener("click", () => {
+            mobileNav.classList.remove("active");
+            document.body.style.overflow = "";
         });
 
         // Close mobile menu when clicking on links
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-content a');
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-content a");
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
+            link.addEventListener("click", () => {
+                mobileNav.classList.remove("active");
+                document.body.style.overflow = "";
             });
         });
 
         // Back to top functionality
-        const backToTopButton = document.getElementById('backToTop');
+        const backToTopButton = document.getElementById("backToTop");
 
-        window.addEventListener('scroll', () => {
+        window.addEventListener("scroll", () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
+                backToTopButton.classList.add("visible");
             } else {
-                backToTopButton.classList.remove('visible');
+                backToTopButton.classList.remove("visible");
             }
         });
 
-        backToTopButton.addEventListener('click', () => {
+        backToTopButton.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth'
+                behavior: "smooth"
             });
         });
         
         // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(this.getAttribute("href"));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                        behavior: "smooth",
+                        block: "start"
                     });
                 }
             });
@@ -187,22 +197,22 @@
         // Adicionar animação de entrada ao conteúdo
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: "0px 0px -50px 0px"
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
                 }
             });
         }, observerOptions);
 
         // Observar elementos para animação
-        document.querySelectorAll('.post-content p').forEach((p, index) => {
-            p.style.opacity = '0';
-            p.style.transform = 'translateY(20px)';
+        document.querySelectorAll(".post-content p").forEach((p, index) => {
+            p.style.opacity = "0";
+            p.style.transform = "translateY(20px)";
             p.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
             observer.observe(p);
         });
